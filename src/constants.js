@@ -1,4 +1,6 @@
 // common action types
 export const SET_UI_ELEMENT = 'SET_UI_ELEMENT';
 
-export const DO_NOTHING = 'DO_NOTHING';
+export const GET_COMMEENTS_REQUEST = 'GET_COMMEENTS_REQUEST';
+export const GET_COMMEENTS_SUCCESS = 'GET_COMMEENTS_SUCCESS';
+export const GET_COMMEENTS_FAIL = 'GET_COMMEENTS_FAIL';

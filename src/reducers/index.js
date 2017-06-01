@@ -1,6 +1,7 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 import * as cs from '../constants';
+import comment from './comment';
 
 /**
  * a is state, b is action.
@@ -29,7 +30,7 @@ const injectCommonReducer = (reducers) => {
 const combineReducersPlus = compose(combineReducers, injectCommonReducer);
 
 const rootReducer = combineReducersPlus({
-
+  comment,
 });
 
 export default rootReducer;

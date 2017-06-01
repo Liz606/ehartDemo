@@ -1,12 +1,11 @@
 import {normalize} from 'normalizr';
 
-
 // Action key that carries API call info interpreted by this Redux middleware.
 export const CALL_API = Symbol('Call API');
 
 // A Redux middleware that interprets actions with CALL_API info specified.
 // Performs the call and promises when such actions are dispatched.
-export default store => next => action => {
+export default () => next => action => {
   const callAPI = action[CALL_API];
   if(typeof callAPI === 'undefined') {
     return next(action);
@@ -23,7 +22,6 @@ export default store => next => action => {
       method,
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${store.getState().session.token}`.trim(),
         'Content-Type': 'application/json',
       },
     };
