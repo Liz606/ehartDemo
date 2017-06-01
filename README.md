@@ -1,23 +1,20 @@
-# changelog compare with original create-react-app
+# 技术背景
 
-## useage
+基于React+Redux+Webpack搭建的前端脚手架，开发者需要掌握es6、react、redux等
+相关知识，编译工具需要掌握Wepack相关知识。
 
-npm install && npm start
+## 开发环境
+...
 
-## Table of Contents
+## 组织架构
+...
 
-- support SCSS
-- support decorator
-- add react-router
-- support Less
-- use [eslint-config-36node](https://github.com/36node/eslint-config-36node) as eslint tool.
-- 加入 redux
-- 加入 react-redux
+# 相关链接
 
-## bug list
-
-- redux-thunk 2.2.0 有bug -- Uncaught TypeError: Cannot read property 'async' of undefined
-
-## commit 规范
-
-[参考阮大侠的blog](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- [React官方文档](https://facebook.github.io/react/docs/hello-world.html)
+- [Redux官方文档](http://redux.js.org/)
+- [React Router中文文档](https://react-guide.github.io/react-router-cn/)
+- [Webpack 中文指南](http://zhaoda.net/webpack-handbook/index.html)
+- [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
+- [less用法](http://less.bootcss.com/)
+- [scss用法](http://sass.bootcss.com/docs/sass-reference/)
