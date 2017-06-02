@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './user.scss';
+import './style.scss';
 
 export default function UserInformation(props) {
   const {username, gender, company} = props;

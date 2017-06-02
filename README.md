@@ -1,6 +1,12 @@
 ## 技术背景
 
-基于React+Redux+Webpack搭建的前端脚手架，开发者需要掌握es6、react、redux等相关知识，编译工具需要掌握Wepack相关知识。
+基于React+Redux+Webpack搭建的前端脚手架，开发者需要掌握es6、react、redux等相关知识，编译工具需要掌握Wepack相关知识。简单介绍一下Redux的相关知识，具体可查看[相关链接]里的相关文档。
+
+Redux是JavaScript状态容器，提供可预测化的状态管理。应用中所有的state都以一个对象树的形式储存在一个单一的store中。惟一改变state的办法是触发action，一个描述发生什么的对象。为了描述 action如何改变state树，你需要编写reducers。Redux有如下三大原则：
+
+- **单一数据源**，整个应用的state被储存在一棵object tree中，并且这个object tree只存在于唯一一个store中。
+- **State是只读的**，惟一改变state的方法就是触发action，action是一个用于描述已发生事件的普通对象。
+- **使用纯函数来执行修改**，为了描述 action 如何改变 state tree ，你需要编写 reducers。
 
 ## 开发环境
 
@@ -12,7 +18,7 @@
 
 本脚手架可供内部开发者和外部开发者使用，外部开发者使用的话需要我们内容人员从我们的git仓库里下载一份供别人使用，公司内部开发者的话建议使用下面的方式：
 
-1. 首先确保新建的仓库是空的，然后添加本仓库地址到工程里：
+- 首先确保新建的仓库是空的，然后添加本仓库地址到工程里：
 
 ```shell
 git remote add sketch git@git.nanyudsp.com:nanyu-contract/react-app-sketch.git
@@ -20,7 +26,7 @@ git fetch sketch master
 git merge sketch/master --allow-unrelated-histories
 ```
 
-2. 添加成功之后，运行下面代码：
+- 添加成功之后，运行下面代码：
 
 ```shell
 npm install
@@ -32,14 +38,62 @@ npm install
 > ```shell
 npm install -g cnpm
 ```
-> 安装完成之后再使用cnpm install就可以了
+> 安装完成之后再使用`cnpm install`就可以了
 
 然后开发者就可以在此基础上继续进行开发了。
 
 > 开发者在第一次使用本脚手架之前需要了解下它的工程文件组织架构，不同文件夹不同文件都有哪些作用和功能呢？下面的内容就具体介绍一下：
 
 ## 组织架构
-...
+
+在开发之前，开发者需要熟悉一下脚手架的工程结构：
+
+```
+├── config                      # webpack的配置信息
+│   ├── webpack.config.dev.js   # 开发环境配置
+│   └── webpack.config.prod.js  # 生产环境配置
+├── build/                      # 编译之后的文件存放目录，可用于部署
+├── public                      # html模板目录
+│   ├── favicon.icon            # 网站图标
+│   └── index.html              # 页面模板
+├── scripts                     # npm运行脚本
+│   ├── build.js                # build脚本，控制台执行`npm run build`
+│   ├── start.js                # 启动运行开发环境脚本，执行`npm start`
+│   └── test.js                 # 测试脚本
+├── src                         # all source code written for this app
+│   ├── actions                 # react actions
+│   │   ├── api.js
+│   │   └── base.js
+│   ├── components              # 业务组件都应该存放在改目录下
+│   │   └── user                # 实例组件
+│   │       ├── index.jsx
+│   │       └── style.scss
+│   ├── container               # 有状态的容器组件
+│   │   ├── home                # 首页容器组件，一般情况下可以在此基础上添加业务内容
+│   │   │   ├── index.jsx
+│   │   │   └── style.less
+│   │   └── layout.jsx          # 最外层的布局组件，所有的路由都是它的子节点
+│   ├── middlewares             # react/redux的中间件
+│   │   └── callAPI.js
+│   ├── reducers                # react reducers
+│   │   ├── index.js
+│   │   └── comment.js
+│   ├── routes                  # routers
+│   │   └── index.jsx
+│   ├── constants.js            # 用于存放所有的常量
+│   ├── index.js                # 程序入口文件
+│   └── store.js                # all states
+├── package.json                # node的配置文件，开发环境会读取改文件的配置内容
+└── README.md                   # 文档说明
+```
+
+> package.json文件里面的一些字段坐一下解释：
+> - devDependencies，开发环境需要的一些包或者插件，使用`--save-dev`安装的都会写入到这里
+> - dependencies，生产环境中需要的依赖，即正常运行该包时所需要的依赖项，使用`--save`
+> - eslintConfig，覆盖eslint-config-36node包里面的eslint配置
+> - proxy，调用API时的代理配置项，凡是通过fetch方法的URL调用都会通过proxy反向代理到后台服务器
+
+> 开发的过程中如碰到问题，欢迎积极交流，邮箱: zhilong.gao@nanyu.tech。
 
 ## 相关链接
 
