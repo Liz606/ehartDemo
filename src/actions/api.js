@@ -1,16 +1,30 @@
 import {CALL_API} from '../middlewares/callAPI';
-import {
-  GET_COMMEENTS_REQUEST,
-  GET_COMMEENTS_SUCCESS,
-  GET_COMMEENTS_FAIL,
-} from '../constants';
 
-export default function getComments() {
+function format(dataset) {
+  return dataset.toUpperCase().replace(/-/g, '_');
+}
+
+export default function fetch(dataset, params) {
+  const fds = format(dataset);
+  const paramsArr = [];
+
+  if(params) {
+    for(const i in params) {
+      paramsArr.push(`${i}=${params[i]}`);
+    }
+  }
+
+  const paramsString = paramsArr.length > 0 ? `&${paramsArr.join('&')}` : '';
+
   return {
     [CALL_API]: {
-      endpoint: '/comment/tag_54',
+      endpoint: `/api/bdp/datalake/v1/query?dataSetName=${dataset}${paramsString}`,
       method: 'GET',
-      types: [GET_COMMEENTS_REQUEST, GET_COMMEENTS_SUCCESS, GET_COMMEENTS_FAIL]
+      types: [
+        `${fds}_REQUESET`,
+        `${fds}_SUCCESS`,
+        `${fds}_FAIL`,
+      ],
     },
   };
 }

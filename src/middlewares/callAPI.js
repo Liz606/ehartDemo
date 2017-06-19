@@ -23,6 +23,7 @@ export default () => next => action => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkbiI6ImNuPUdhbyBaaGlsb25nLG91PWRldixkYz1maXJldGFpbG1vbmtleSxkYz10ZWNoIiwiY29udHJvbHMiOltdLCJnaXZlbk5hbWUiOiJHYW8iLCJzbiI6IlpoaWxvbmciLCJjbiI6IkdhbyBaaGlsb25nIiwibWFpbCI6InpoaWxvbmcuZ2FvQG5hbnl1LnRlY2giLCJvYmplY3RDbGFzcyI6WyJpbmV0T3JnUGVyc29uIiwidG9wIl0sIm5hbWUiOiJHYW8gWmhpbG9uZyIsImlhdCI6MTQ5NTg3NDAwMn0.F3mdRzoISt4sktjjriUM_IVZFejPDovtGbstsb1_HjsJUu3wQbMmBW6KvoTIEwHChlGCbVHBub_n7vIlX3e6Ct56uwEcOPItxOozFZQyHxQDcXMdfULRjVENX4IwL26LFy5h1eZ-mvoHmvGQWMSLTNM48TZl6gmmCT8fLSM9WgE'
       },
     };
 

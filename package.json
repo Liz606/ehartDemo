@@ -2,7 +2,7 @@
   "name": "sketch-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://www.html-js.com",
+  "proxy": "http://zhongche.dev.firetailmonkey.tech",
   "devDependencies": {
     "autoprefixer": "6.7.2",
     "babel-core": "6.22.1",
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "lodash": "4.17.4",
+    "nanyu-ui-lib": "0.2.1",
     "normalizr": "3.2.2",
     "react": "15.4.2",
     "react-dom": "15.4.2",
@@ -98,7 +99,10 @@
     "extends": "36node",
     "rules": {
       "arrow-parens": 0,
-      "react/prop-types": 0
+      "react/prop-types": 0,
+      "guard-for-in": 0,
+      "no-restricted-syntax": 0,
+      "radix": 0
     }
   }
 }

@@ -1,0 +1,57 @@
+/**
+ * 通过添加className的方法可以覆盖组件本身自带的样式
+ */
+
+.demo-layout {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+.demo-sider {
+  .logo {
+    padding-left: 24px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    color: #51bb76;
+  }
+  .ant-menu {
+    background-color: transparent;
+    font-size: 13px;
+    color: white;
+
+    .ant-menu-item {
+      padding-left: 24px;
+      font-size: 13px;
+      color: white;
+      text-decoration: none;
+
+      &::after {
+        border-right: 3px solid transparent;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+      &.ant-menu-item-selected {
+        background-color: #1e1e1e !important;
+
+        &::after {
+          border-right: 3px solid #51bb76;
+        }
+      }
+    }
+  }
+}
+.demo-layout2 {
+  .demo-header {
+    padding: 0 15px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    background-color: #252525;
+  }
+  .demo-content {
+    padding: 15px;
+    background-color: #505050;
+  }
+}

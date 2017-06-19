@@ -1,13 +1,17 @@
 import React from 'react';
 import {Router, Route, IndexRoute} from 'react-router';
 
-import Home from '../containers/home';
 import Layout from '../containers/layout';
+import DemoException from '../containers/demo-exception';
+import DemoMaterial from '../containers/demo-material';
 
 export default(
   <Router>
     <Route path="/" component={Layout}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={DemoException} />
+
+      <Route path="/exception" component={DemoException} />
+      <Route path="/material" component={DemoMaterial} />
     </Route>
   </Router>
 );
