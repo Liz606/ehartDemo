@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "lodash": "4.17.4",
-    "nanyu-ui-lib": "0.2.1",
+    "nanyu-ui-lib": "0.2.3",
     "normalizr": "3.2.2",
     "react": "15.4.2",
     "react-dom": "15.4.2",

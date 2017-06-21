@@ -5,11 +5,15 @@ import {connect} from 'react-redux';
 // 引入nanyu-ui-lib组件库
 import {Row, Col, Table, ChartBar, ChartPie, Message} from 'nanyu-ui-lib';
 
+// 引入actions中的方法
 import fetch from '../../actions/api';
 import setUIElement from '../../actions/base';
 
 import './style.css';
 
+/**
+ * store树的元素绑定到组件的props属性中去
+ */
 const mapStateToProps = state => ({
   table: state.exception.table,
   limit: state.exception.limit,
@@ -23,6 +27,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ExceptionPage extends Component {
+  // 组件即将渲染时触发的事件
   componentWillMount() {
     const {limit} = this.props;
 
@@ -36,6 +41,7 @@ export default class ExceptionPage extends Component {
     this.props.fetch('exception-pie');
   }
 
+  // 渲染
   render() {
     const {table} = this.props;
     const columns = [

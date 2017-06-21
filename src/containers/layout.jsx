@@ -40,6 +40,12 @@ export default class LayoutPagae extends Component {
            * 调用Layout组件，传递className属性，自定义组件样式
            */
         }
+
+        {
+          /*
+           * 调用Layout.Sider组件，侧边栏
+           */
+        }
         <Sider className="demo-sider">
           {
             /*
@@ -70,8 +76,20 @@ export default class LayoutPagae extends Component {
             </Link>
           </Menu>
         </Sider>
+
+        {
+          /*
+           * 右侧上下结构布局
+           */
+        }
         <Layout className="demo-layout2">
           <Header className="demo-header">{title}</Header>
+
+          {
+            /*
+             * 子路由的内容通过this.props.children加载到这里
+             */
+          }
           <Content className="demo-content">{this.props.children}</Content>
         </Layout>
       </Layout>

@@ -5,6 +5,7 @@ import Layout from '../containers/layout';
 import DemoException from '../containers/demo-exception';
 import DemoMaterial from '../containers/demo-material';
 
+// 路由配置模块
 export default(
   <Router>
     <Route path="/" component={Layout}>

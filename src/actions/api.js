@@ -4,6 +4,9 @@ function format(dataset) {
   return dataset.toUpperCase().replace(/-/g, '_');
 }
 
+/**
+ * action: fetch方法，调用API
+ */
 export default function fetch(dataset, params) {
   const fds = format(dataset);
   const paramsArr = [];
