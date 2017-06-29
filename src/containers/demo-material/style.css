@@ -7,3 +7,87 @@
   border: 1px solid #313131;
   background-color: #3e3e3e;
 }
+.demo-material .inner.s1 {}
+
+.demo-material .inner.s1 .chart,
+.demo-material .inner.s1 .legend {
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+.demo-material .inner.s1 .chart .center-show {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  color: white;
+}
+.demo-material .inner.s1 .legend {
+  display: flex;
+  padding: 1vh;
+  flex-direction: column;
+  justify-content: center;
+}
+.demo-material .inner.s1 .legend p {
+  padding: .6vh 0;
+  border-top: 1px solid rgba(255,255,255,.31);
+  border-bottom: 1px solid rgba(255,255,255,.31);
+}
+.demo-material .inner.s1 .legend p:last-child { border-top: none; }
+.demo-material .inner.s1 .legend p b {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.demo-material .inner.s1 .legend p b.c1 { background-color: #ff9242; }
+.demo-material .inner.s1 .legend p b.c2 { background-color: #51bb76; }
+.demo-material .inner.s1 .legend p span {
+  float: right;
+  margin-left: 15px;
+}
+.demo-material .inner.s1 .legend p span.pt {
+  margin-left: 10px;
+  width: 28px;
+  text-align: right;
+  color: rgba(255,255,255,.31);
+}
+
+.demo-material .custom-table .ant-table {
+  border: none;
+  border-radius: 0;
+  overflow: auto;
+}
+.demo-material .custom-table .ant-table-body table {
+  padding: 0;
+  width: 2000px;
+  border-radius: 0;
+}
+.demo-material .custom-table .ant-table-tbody > tr:hover > td { background-color: transparent; }
+.demo-material .custom-table .ant-table-thead > tr > th {
+  background-color: #272727;
+  color: white;
+  border: none;
+}
+.demo-material .custom-table .ant-table-tbody > tr:nth-child(odd) {
+  background-color: #3e3e3e;
+}
+.demo-material .custom-table .ant-table-tbody > tr:nth-child(even) {
+  background-color: #393939;
+}
+.demo-material .custom-table .ant-table-tbody > tr > td {
+  border: none;
+  color: white;
+}
