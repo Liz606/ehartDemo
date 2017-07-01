@@ -9,9 +9,12 @@ Redux是JavaScript状态容器，提供可预测化的状态管理。应用中�
 - **使用纯函数来执行修改**，为了描述 action 如何改变 state tree ，你需要编写 reducers。
 
 ## 开发环境
-
-- 安装Homebrew，命令行输入`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- 使用HomeBrew安装Node.js和npm包管理器，命令分别为`brew install node`和`brew install npm`
+- MacOS
+    - 安装Homebrew，命令行输入`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+    - 使用HomeBrew安装Node.js和npm包管理器，命令分别为`brew install node`和`brew install npm`
+- Windows
+    - 登陆官网[http://nodejs.org/](http://nodejs.org/)下载安装nodejs
+    - 安装完成之后控制台输入`node -v`和`npm -v`，出现版本号说明Nodejs和npm已经安装成功了
 - IDE：Atom、Sublime Text、VSCode等不限
 
 ## 使用指南
@@ -38,7 +41,7 @@ npm install
 > ```shell
 npm install -g cnpm
 ```
-> 安装完成之后再使用`cnpm install`就可以了
+> 安装完成之后再使用`cnpm install`就可以了。**注意，浏览器请选择谷歌浏览器，IE9+上使用会出现BUG不能正常打开，后面会解决这个问题**
 
 然后开发者就可以在此基础上继续进行开发了。
 
@@ -87,7 +90,7 @@ npm install -g cnpm
 └── README.md                   # 文档说明
 ```
 
-> package.json文件里面的一些字段坐一下解释：
+> package.json文件里面的一些字段作一下解释：
 > - devDependencies，开发环境需要的一些包或者插件，使用`--save-dev`安装的都会写入到这里
 > - dependencies，生产环境中需要的依赖，即正常运行该包时所需要的依赖项，使用`--save`
 > - eslintConfig，覆盖eslint-config-36node包里面的eslint配置
