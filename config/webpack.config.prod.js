@@ -64,7 +64,7 @@ module.exports = {
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath
   },
@@ -170,22 +170,12 @@ module.exports = {
       // enable scss with 'sass' loader and use 'style' loader as the same as css.
       {
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css',
-          'sass',
-          extractTextPluginOptions
-        )
+        loader: 'style!css!sass'
       },
       // enable less with 'less' loader and user 'style | css' loader as the same as css.
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css',
-          'less',
-          extractTextPluginOptions
-        )
+        loader: 'style!css!less',
       }
     ]
   },
