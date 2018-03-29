@@ -2,8 +2,6 @@ import {combineReducers} from 'redux';
 
 import * as cs from '../constants';
 import layout from './layout';
-import exception from './exception';
-import material from './material';
 
 /**
  * a is state, b is action.
@@ -33,8 +31,6 @@ const combineReducersPlus = compose(combineReducers, injectCommonReducer);
 
 const rootReducer = combineReducersPlus({
   layout,
-  exception,
-  material,
 });
 
 export default rootReducer;

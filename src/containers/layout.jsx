@@ -1,96 +1,90 @@
-/**
- * 在文件头部引入页面需要的组件
- * 绝对引用的要放在想对引用的前面
- * 注意代码书写语法格式
- */
-
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
-import {Link, IndexLink} from 'react-router';
+import {IndexLink} from 'react-router';
 import {connect} from 'react-redux';
-import {Layout, Menu} from 'nanyu-ui-lib';
+import {Layout, Menu, Icon} from 'antd';
+import 'font-awesome/css/font-awesome.min.css';
+import setUIElement from '../actions/base';
 
-import 'nanyu-ui-lib/dist/style.css';
 import './style.less';
 
-const {Header, Content, Sider} = Layout;
+const { Header, Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
 
 const mapStateToProps = state => ({
-  title: state.layout.title,
+  title: state.layout.title
 });
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {},
+  {setUIElement},
   dispatch
 );
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class LayoutPagae extends Component {
+  state = {
+    collapsed: false,
+    openKeys: ['line'],
+  };
+
   componentWillMount() {
-    console.log('life circle of will-mount');
+    console.log('init');
   }
 
+  onCollapse = (collapsed) => {
+    console.log(collapsed);
+    this.setState({ collapsed });
+  }
+  onOpenChange = (openKeys) => {
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if(this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
+    }
+  }
+
+  rootSubmenuKeys = ['line', 'bar', 'scatter'];
   render() {
-    // 从store树里取值
-    const {title} = this.props;
-
     return (
-      <Layout className="demo-layout">
-        {
-          /*
-           * 调用Layout组件，传递className属性，自定义组件样式
-           */
-        }
-
-        {
-          /*
-           * 调用Layout.Sider组件，侧边栏
-           */
-        }
-        <Sider className="demo-sider">
-          {
-            /*
-             * 可以插入LOGO图片，比如：<img src="logo.png" />
-             */
-          }
-          <div className="logo">NANYU UI DEMO</div>
-
-          {
-            /*
-             * 左侧菜单布局，调用Menu组件
-             */
-          }
-          <Menu mode="inline" defaultSelectedKeys={['1']}>
-            <IndexLink
-              to="/"
-              className="ant-menu-item"
-              activeClassName="ant-menu-item-selected"
-            >
-              异常
-            </IndexLink>
-            <Link
-              to="/material"
-              className="ant-menu-item"
-              activeClassName="ant-menu-item-selected"
-            >
-              物料
-            </Link>
-          </Menu>
-        </Sider>
-
-        {
-          /*
-           * 右侧上下结构布局
-           */
-        }
-        <Layout className="demo-layout2">
-          <Header className="demo-header">{title}</Header>
-
-          {
-            /*
-             * 子路由的内容通过this.props.children加载到这里
-             */
-          }
-          <Content className="demo-content">{this.props.children}</Content>
+      <Layout className="Liz-layout" style={{ minHeight: '100vh' }}>
+        <Header className="header">
+          Echarts
+        </Header>
+        <Layout>
+          <Sider
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+          >
+            <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
+              <SubMenu key="line" title={<span><Icon type="line-chart" /><span>Line</span></span>}>
+                <Menu.Item key="1"><IndexLink to="/gradient">Line Gradient</IndexLink></Menu.Item>
+                <Menu.Item key="2"><IndexLink to="/towvalueaxes">Tow Value-Axes</IndexLink></Menu.Item>
+              </SubMenu>
+              <SubMenu key="bar" title={<span><Icon type="bar-chart" /><span>Bar</span></span>}>
+                <Menu.Item key="5"> <IndexLink to="/delay-animation">Delay Animation</IndexLink></Menu.Item>
+                <Menu.Item key="6"> <IndexLink to="/stacked-histogram">Stacked Histogram</IndexLink></Menu.Item>
+              </SubMenu>
+              {/* <SubMenu key="scatter" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
+                <Menu.Item key="9"> <IndexLink to="/bar">Option 1</IndexLink></Menu.Item>
+                <Menu.Item key="10"> <IndexLink to="/bar">Option 1</IndexLink></Menu.Item>
+                <Menu.Item key="11"> <IndexLink to="/bar">Option 1</IndexLink></Menu.Item>
+                <Menu.Item key="12"> <IndexLink to="/bar">Option 1</IndexLink></Menu.Item>
+              </SubMenu> */}
+            </Menu>
+          </Sider>
+          <Layout className="Liz-content">
+            <Content style={{ margin: '0 16px' }}>
+              <Content>
+                {this.props.children}
+              </Content>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>
+              Ant Design ©2016 Created by Ant UED
+            </Footer>
+          </Layout>
         </Layout>
       </Layout>
     );

@@ -4,24 +4,6 @@ function format(dataset) {
   return dataset.toUpperCase().replace(/-/g, '_');
 }
 
-export function refactorChartData(chartData) {
-  const data = [];
-  let total = 0;
-
-  for(const p in chartData) {
-    data.push({
-      name: p,
-      value: chartData[p],
-    });
-    total += chartData[p];
-  }
-
-  return {data, total};
-}
-
-/**
- * action: fetch方法，调用API
- */
 export function fetch(dataset, params, suffix) {
   const fds = format(dataset);
   const paramsArr = [];

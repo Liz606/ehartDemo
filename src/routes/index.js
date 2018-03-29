@@ -1,31 +1,38 @@
-// 路由配置模块
-export default {
-  path: '/',
-  getComponent(nextState, callback) {
-    require.ensure([], require => {
-      callback(null, require('../containers/layout').default);
-    }, 'main');
-  },
-  indexRoute: {
+
+import Line from './line';
+import Bar from './bar';
+
+const IndexPage = require('../containers/index').default;
+const Layout = require('../containers/layout').default;
+const LineGradient = require('../containers/line/gradient').default;
+const NotFoundPage = require('../containers/noPage').default;
+
+export default [
+  {
+    path: '/main',
     getComponent(nextState, callback) {
-      require.ensure([], require => {
-        callback(null, require('../containers/demo-exception').default);
-      }, 'exception');
+      callback(null, IndexPage);
     }
   },
-  childRoutes: [{
-    path: 'exception',
+  {
+    path: '/',
     getComponent(nextState, callback) {
-      require.ensure([], require => {
-        callback(null, require('../containers/demo-exception').default);
-      }, 'exception');
-    }
-  }, {
-    path: 'material',
+      callback(null, Layout);
+    },
+    indexRoute: {
+      getComponent(nextState, callback) {
+        callback(null, LineGradient);
+      }
+    },
+    childRoutes: [
+      Line,
+      Bar
+    ]
+  },
+  {
+    path: '*',
     getComponent(nextState, callback) {
-      require.ensure([], require => {
-        callback(null, require('../containers/demo-material').default);
-      }, 'material');
+      callback(null, NotFoundPage);
     }
-  }]
-};
+  },
+];

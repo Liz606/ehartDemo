@@ -1,6 +1,6 @@
 
 const initialState = {
-  title: '',
+  title: 'eChart',
 };
 
 const layoutReducer = (state = initialState) => state;
