@@ -1,71 +1,65 @@
-/**
- * 通过添加className的方法可以覆盖组件本身自带的样式
- * 有时候某些DOM在组件中未提供className，这时候需要开发者查找DOM对应的className
- * 在样式表中覆盖掉该className，替换样式
- */
-
-.demo-layout {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  color: #fff;
+.Liz-layout{
+  .ant-layout-header{
+    background: #242325;
+  }
+  .ant-layout-sider{
+    background: #242325;
+  }
+  .ant-menu-submenu-title{
+    &:hover {
+      color: #FF521B;
+    }
+  }
+  .header{
+    color: #FF521B;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .ant-layout-sider-trigger{
+    background: #FF521B;
+  }
 }
-.demo-sider {
-  .logo {
-    padding-left: 24px;
+
+.ant-menu{
+  background: #EBEBEB;
+  .ant-menu-item{
+    margin:0;
     height: 50px;
     line-height: 50px;
-    font-size: 15px;
-    color: #51bb76;
-  }
-  .ant-menu {
-    background-color: transparent;
-    font-size: 13px;
-    color: white;
-
-    .ant-menu-item {
-      padding-left: 24px;
-      font-size: 13px;
-      color: white;
-      text-decoration: none;
-
-      &::after {
-        border-right: 3px solid transparent;
-        -webkit-transform: scale(1);
-                transform: scale(1);
+    a{
+      color: #373738;
+      &:hover {
+        color: #FF521B;
       }
-      &.ant-menu-item-selected {
-        background-color: #1e1e1e !important;
-
-        &::after {
-          border-right: 3px solid #51bb76;
+    }
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background-color: #FF521B;
+    a{
+      color: #EBEBEB;
+      &:hover {
+        color: #EBEBEB;
+      }
+    }
+    &:after{
+      border-right: 3px solid #242325;
+    }
+  }
+  .ant-menu-submenu-title{
+    &:hover{
+      .ant-menu-submenu-arrow{
+        &:after,&:before{
+          background: linear-gradient(to right, #FF521B, #FF521B);
         }
       }
     }
   }
-}
-.demo-layout2 {
-  .demo-header {
-    padding: 0 15px;
-    height: 50px;
-    line-height: 50px;
-    font-size: 15px;
-    background-color: #252525;
+  .ant-menu-submenu-selected{
+    color: #FF521B;
+    .ant-menu-submenu-arrow{
+      &:after,&:before{
+        background: linear-gradient(to right, #FF521B, #FF521B);
+      }
+    }
   }
-  .demo-content {
-    padding: 15px;
-    background-color: #505050;
-  }
-}
-
-body .ant-spin {
-  margin-left: -10px;
-  margin-top: -10px;
-  left: 50%;
-  top: 50%;
-}
-body .ant-spin-spinning {
-  display: block;
-  position: absolute;
-  z-index: 10;
 }
