@@ -7,7 +7,7 @@
   }
   .ant-layout-footer {
     background: #ffffff;
-}
+  }
   .ant-menu-submenu-title{
     &:hover {
       color: #FF521B;
@@ -21,21 +21,27 @@
   .ant-layout-sider-trigger{
     background: #FF521B;
   }
-<<<<<<< HEAD
   .Liz-content{
     padding: 20px;
     background: #ffffff;
   }
-=======
->>>>>>> 479c695a282a12ad9c2184801d71525f4b8f3041
 }
-
+.Liz-contentWarp{
+  margin-top: 25px;
+  padding: 24px 14px;
+  border: 1px solid #efeff1;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
 .ant-menu{
   background: #EBEBEB;
-  .ant-menu-item{
+  .ant-menu-item,{
     margin:0;
     height: 50px;
     line-height: 50px;
+    &:hover {
+      color: #FF521B;
+    }
     a{
       color: #373738;
       &:hover {
@@ -43,8 +49,8 @@
       }
     }
   }
-  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
-    background-color: #FF521B;
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected, .ant-menu-item-selected {
+    background-color: #FF521B!important;
     a{
       color: #EBEBEB;
       &:hover {
@@ -64,8 +70,8 @@
       }
     }
   }
-  .ant-menu-submenu-selected{
-    color: #FF521B;
+ >.ant-menu-submenu-selected,>.ant-menu-submenu-open,>.ant-menu-submenu-active{
+    color: #FF521B!important;
     .ant-menu-submenu-arrow{
       &:after,&:before{
         background: linear-gradient(to right, #FF521B, #FF521B);

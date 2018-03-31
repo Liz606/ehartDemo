@@ -17,16 +17,25 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ExceptionPage extends Component {
-  // 组件即将渲染时触发的事件
-  componentWillMount() {
-    this.props.setUIElement('layout', 'title', 'Map');
+  constructor(props) {
+    super(props);
+    this.focus = this.focus.bind(this);
   }
-
-  // 渲染
+  focus() {
+    console.log(this.textInput);
+  }
   render() {
     return (
-      <div className="demo">
-        two
+      <div>
+        <input
+          type="text"
+          ref={(input) => { this.textInput = input; }}
+        />
+        <input
+          type="button"
+          value="Focus the text input"
+          onClick={this.focus}
+        />
       </div>
     );
   }

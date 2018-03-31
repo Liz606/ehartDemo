@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
+import Title from 'react-title-component';
 import {IndexLink} from 'react-router';
 import {connect} from 'react-redux';
 import {Layout, Menu, Icon} from 'antd';
@@ -49,6 +50,7 @@ export default class LayoutPagae extends Component {
   render() {
     return (
       <Layout className="Liz-layout" style={{ minHeight: '100vh' }}>
+        <Title render={this.props.title} />
         <Header className="header">
           Echarts
         </Header>

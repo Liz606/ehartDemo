@@ -2,6 +2,7 @@ import {combineReducers} from 'redux';
 
 import * as cs from '../constants';
 import layout from './layout';
+import line from './line';
 
 /**
  * a is state, b is action.
@@ -31,6 +32,7 @@ const combineReducersPlus = compose(combineReducers, injectCommonReducer);
 
 const rootReducer = combineReducersPlus({
   layout,
+  line
 });
 
 export default rootReducer;

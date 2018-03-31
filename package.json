@@ -1,8 +1,8 @@
 {
-  "name": "lizechart",
-  "version": "1.0.4",
-  "proxy": "",
-  "URL": "",
+  "name": "orderock",
+  "version": "1.0.6",
+  "proxy": "https://dev.selectinsight.club",
+  "URL": "https://dev.selectinsight.club",
   "PDF_URL": "https://url-to-pdf-api.herokuapp.com",
   "devDependencies": {
     "autoprefixer": "6.7.2",
@@ -20,7 +20,7 @@
     "cross-spawn": "4.0.2",
     "css-loader": "0.26.1",
     "detect-port": "1.0.1",
-    "dotenv": "2.0.0",
+    "dotenv": "^5.0.1",
     "es6-symbol": "^3.1.1",
     "eslint-config-36node": "^0.2.2",
     "eslint-loader": "^1.6.3",
